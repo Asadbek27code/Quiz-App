@@ -111,24 +111,20 @@ class _SingInPageState extends State<SingInPage> {
                       textInputAction: TextInputAction.next,
                       controller: emailC,
                       decoration: InputDecoration(
-                          enabledBorder:
-                              OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
-                          focusedBorder:
-                              OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
-                          label: const Text(
-                            "Email",
-                            // style: TextStyle(),
-                          ),
-                          hintText: "Enter Email",
-                          hintStyle: TextStyle(
-                            color: DataColor.colorGrey,
-                          ),
-                          labelStyle: TextStyle(color: DataColor.colorGrey),
-                          floatingLabelStyle: const TextStyle(color: Colors.black),
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: DataColor.colorGrey,
-                          )),
+                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
+                        focusedBorder:
+                            OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
+                        label: const Text(
+                          "Email",
+                          // style: TextStyle(),
+                        ),
+                        hintText: "Enter Email",
+                        hintStyle: TextStyle(
+                          color: DataColor.colorGrey,
+                        ),
+                        labelStyle: TextStyle(color: DataColor.colorGrey),
+                        floatingLabelStyle: const TextStyle(color: Colors.black),
+                      ),
                     ),
                   ),
                 ),
@@ -140,33 +136,29 @@ class _SingInPageState extends State<SingInPage> {
                     controller: passwordC,
                     cursorColor: Colors.black,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
-                        focusedBorder:
-                            OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
-                        label: const Text("Password"),
-                        hintStyle: TextStyle(color: DataColor.colorGrey),
-                        hintText: "Enter Password",
-                        labelStyle: TextStyle(color: DataColor.colorGrey),
-                        floatingLabelStyle: const TextStyle(color: Colors.black),
-                        suffixIcon: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                isObscureText = !isObscureText;
-                              });
-                            },
-                            icon: isObscureText
-                                ? Icon(
-                                    Icons.visibility_off,
-                                    color: DataColor.colorGrey,
-                                  )
-                                : Icon(
-                                    Icons.visibility,
-                                    color: DataColor.colorGrey,
-                                  )),
-                        prefixIcon: Icon(
-                          Icons.lock_rounded,
-                          color: DataColor.colorGrey,
-                        )),
+                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
+                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
+                      label: const Text("Password"),
+                      hintStyle: TextStyle(color: DataColor.colorGrey),
+                      hintText: "Enter Password",
+                      labelStyle: TextStyle(color: DataColor.colorGrey),
+                      floatingLabelStyle: const TextStyle(color: Colors.black),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isObscureText = !isObscureText;
+                            });
+                          },
+                          icon: isObscureText
+                              ? Icon(
+                                  Icons.visibility_off,
+                                  color: DataColor.colorGrey,
+                                )
+                              : Icon(
+                                  Icons.visibility,
+                                  color: DataColor.colorGrey,
+                                )),
+                    ),
                   ),
                 ),
                 Padding(

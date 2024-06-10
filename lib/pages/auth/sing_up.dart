@@ -2,6 +2,7 @@ import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:asadbek_router_lesson/data/appColors.dart';
 import 'package:asadbek_router_lesson/services/firebase_auth_service.dart';
 import 'package:asadbek_router_lesson/services/util_service.dart';
+import 'package:email_otp/email_otp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,6 +19,7 @@ class _SingUpPageState extends State<SingUpPage> {
   TextEditingController nameC = TextEditingController();
   TextEditingController emailC = TextEditingController();
   TextEditingController passwordC = TextEditingController();
+  EmailOTP myAuth = EmailOTP();
 
   Future<void> register() async {
     String name = nameC.text;
@@ -33,6 +35,7 @@ class _SingUpPageState extends State<SingUpPage> {
     } else if (pass.isEmpty || pass.length < 5) {
       Utils.fireSnackBar("Password should be more than 6 char", context);
     } else {
+      myAuth.setConfig(appEmail: "me@rohitchouhan.com", appName: "Email OTP", userEmail: email, otpLength: 4, otpType: OTPType.digitsOnly);
       User? user = await AuthService.registerUser(context, name: name, email: email, password: pass);
       if (user != null) {
         if (mounted) {
