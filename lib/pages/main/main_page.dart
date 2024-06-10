@@ -12,11 +12,11 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-List<Widget> pagesList = const [
-  HomePage(),
-  LevelPage(),
-  ProfilePage(),
-];
+// List<Widget> pagesList = const [
+//   HomePage(),
+//   LevelPage(),
+//   ProfilePage(),
+// ];
 
 int tanlov = 0;
 
