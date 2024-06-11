@@ -15,7 +15,7 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(),
       body: widget.child,
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
           ),
