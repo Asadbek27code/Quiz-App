@@ -71,6 +71,7 @@ class _SingUpPageState extends State<SingUpPage> {
   }
 
   bool checkValue = false;
+  bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -101,24 +102,28 @@ class _SingUpPageState extends State<SingUpPage> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   child: TextField(
                     controller: nameC,
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: DataColor.colorGrey,
+                            borderSide: const BorderSide(
+                              color: Colors.grey,
                             )),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: DataColor.colorGrey,
+                              color: DataColor.colorgreen,
                             )),
-                        label: const Text("full name"),
+                        label: const Text("Full Name"),
+                        hintText: "Enter Full Name",
+                        hintStyle: TextStyle(color: DataColor.colorGrey),
                         labelStyle: TextStyle(
                           color: DataColor.colorGrey,
                         ),
+                        floatingLabelStyle: const TextStyle(color: Colors.black),
                         suffixIcon: Icon(
                           Icons.person,
                           color: DataColor.colorGrey,
@@ -126,21 +131,25 @@ class _SingUpPageState extends State<SingUpPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   child: TextField(
                     controller: emailC,
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: DataColor.colorGrey,
+                            borderSide: const BorderSide(
+                              color: Colors.grey,
                             )),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: DataColor.colorGrey,
+                              color: DataColor.colorgreen,
                             )),
-                        label: const Text("email"),
+                        label: const Text("Email"),
+                        hintText: "Enter Email",
+                        floatingLabelStyle: const TextStyle(color: Colors.black),
+                        hintStyle: TextStyle(color: DataColor.colorGrey),
                         labelStyle: TextStyle(
                           color: DataColor.colorGrey,
                         ),
@@ -151,49 +160,60 @@ class _SingUpPageState extends State<SingUpPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   child: TextField(
+                    keyboardType: TextInputType.visiblePassword,
+                    obscureText: isObscureText,
                     controller: passwordC,
+                    cursorColor: Colors.black,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: DataColor.colorGrey,
-                            )),
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                              color: DataColor.colorGrey,
-                            )),
-                        label: const Text("password"),
-                        labelStyle: TextStyle(
-                          color: DataColor.colorGrey,
-                        ),
-                        suffixIcon: Icon(
-                          Icons.remove_red_eye,
-                          color: DataColor.colorGrey,
-                        )),
+                      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
+                      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
+                      label: const Text("Password"),
+                      hintStyle: TextStyle(color: DataColor.colorGrey),
+                      hintText: "Enter Password",
+                      labelStyle: TextStyle(color: DataColor.colorGrey),
+                      floatingLabelStyle: const TextStyle(color: Colors.black),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isObscureText = !isObscureText;
+                            });
+                          },
+                          icon: isObscureText
+                              ? Icon(
+                                  Icons.visibility_off,
+                                  color: DataColor.colorGrey,
+                                )
+                              : Icon(
+                                  Icons.visibility,
+                                  color: DataColor.colorGrey,
+                                )),
+                    ),
                   ),
                 ),
+
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    Checkbox(
-                        checkColor: Colors.green,
-                        value: checkValue,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(1),
-                          side: BorderSide(color: DataColor.colorGrey, width: 0.003),
-                        ),
-                        activeColor: Colors.white,
-                        // hoverColor: Colors.white,
-                        // activeColor: Colors.white,
-                        focusColor: DataColor.colorgreen,
-                        onChanged: (value) {
-                          setState(() {
-                            checkValue = value!;
-                          });
-                        }),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Checkbox(
+                          checkColor: Colors.green,
+                          value: checkValue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(1),
+                            side: const BorderSide(color: Colors.red, width: 0.003),
+                          ),
+                          activeColor: Colors.transparent,
+                          // activeColor: Colors.white,
+                          focusColor: DataColor.colorgreen,
+                          onChanged: (value) {
+                            setState(() {
+                              checkValue = value!;
+                            });
+                          }),
+                    ),
                     Text(
                       "Accept terms & Condition",
                       style: TextStyle(fontSize: 11, fontWeight: FontWeight.w400, color: checkValue ? DataColor.colorgreen : DataColor.colorGrey),
@@ -201,7 +221,7 @@ class _SingUpPageState extends State<SingUpPage> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   child: MaterialButton(
                     height: 60,
                     color: DataColor.colorgreen,
@@ -285,7 +305,7 @@ class _SingUpPageState extends State<SingUpPage> {
             child: Row(
               children: [
                 Text(
-                  "Don’t have an account?",
+                  "Don’t have an account? ",
                   style: TextStyle(fontSize: 11, color: DataColor.colorBlack),
                 ),
                 const Text(

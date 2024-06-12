@@ -1,6 +1,8 @@
+import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:asadbek_router_lesson/data/appColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -169,6 +171,24 @@ class _ProfilePageState extends State<ProfilePage> {
                       labelStyle: TextStyle(color: DataColor.colorGrey),
                       floatingLabelStyle: const TextStyle(color: Colors.black),
                     ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                child: MaterialButton(
+                  height: 60,
+                  color: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  minWidth: double.infinity,
+                  onPressed: () {
+                    context.go(AppRouterName.singIn);
+                  },
+                  child: const Text(
+                    "Log out",
+                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                 ),
               ),

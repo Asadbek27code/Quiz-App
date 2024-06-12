@@ -17,4 +17,5 @@ final class AppRouterName {
   static const String medium = "medium";
   static const String hard = "hard";
   static const String result = "result";
+  static const String homeIchi = "/homeIchi";
 }

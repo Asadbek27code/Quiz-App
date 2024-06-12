@@ -1,5 +1,7 @@
+import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -64,24 +66,30 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.grey.withOpacity(0.1),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const SizedBox(height: 20),
-                      Expanded(
-                        flex: 2,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            SvgPicture.asset(svglist[index].toString()),
-                            Text(
-                              nameList[index].toString(),
-                              style: const TextStyle(fontSize: 20),
-                            ),
-                          ],
+                  child: MaterialButton(
+                    onPressed: () {
+                      // context.go(AppRouterName.homeIchi);
+                    },
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const SizedBox(height: 20),
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              SvgPicture.asset(svglist[index].toString()),
+                              Text(
+                                nameList[index].toString(),
+                                style: const TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );
