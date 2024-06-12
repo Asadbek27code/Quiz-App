@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: CircleAvatar(
-              radius: 30,
+              radius: 25,
               child: Image.asset(
                 "assets/images/image.png",
                 width: 46,
