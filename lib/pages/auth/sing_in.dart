@@ -1,11 +1,8 @@
 import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:asadbek_router_lesson/data/appColors.dart';
-import 'package:asadbek_router_lesson/pages/main/home_page.dart';
 import 'package:asadbek_router_lesson/services/firebase_auth_service.dart';
 import 'package:asadbek_router_lesson/services/google_sing_in_firebase.dart';
-import 'package:asadbek_router_lesson/services/util_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -42,7 +39,9 @@ class _SingInPageState extends State<SingInPage> {
     } else {
       emailC.clear();
       passwordC.clear();
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         backgroundColor: Colors.red,
         content: Center(
@@ -76,8 +75,8 @@ class _SingInPageState extends State<SingInPage> {
               children: [
                 Column(
                   children: [
-                    const Padding(
-                      padding: const EdgeInsets.only(right: 55),
+                    Padding(
+                      padding: EdgeInsets.only(right: 55),
                       child: Text(
                         "Hello,",
                         style: TextStyle(
@@ -87,7 +86,7 @@ class _SingInPageState extends State<SingInPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 25),
+                      padding: EdgeInsets.only(left: 25),
                       child: Text(
                         "Your are welcome",
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
@@ -181,7 +180,7 @@ class _SingInPageState extends State<SingInPage> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 75),
+                  padding: const EdgeInsets.symmetric(horizontal: 75),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -192,7 +191,7 @@ class _SingInPageState extends State<SingInPage> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Text(
                           "Or Sign in With",
                           style: TextStyle(color: DataColor.colorGrey),

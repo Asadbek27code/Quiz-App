@@ -7,7 +7,6 @@ import 'package:asadbek_router_lesson/pages/main/level_page.dart';
 import 'package:asadbek_router_lesson/pages/main/main_page.dart';
 import 'package:asadbek_router_lesson/pages/main/profile_page.dart';
 import 'package:asadbek_router_lesson/pages/splesh_page.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final class GoRouterSystem {

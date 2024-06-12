@@ -1,5 +1,4 @@
 import 'package:asadbek_router_lesson/core/router/router_name.dart';
-import 'package:asadbek_router_lesson/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -115,7 +114,7 @@ class _SingInCodePageState extends State<SingInCodePage> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
+                child: SizedBox(
                   height: 350,
                   width: double.infinity,
                   child: GridView.builder(
@@ -155,7 +154,7 @@ class _SingInCodePageState extends State<SingInCodePage> {
                       itemCount: 12),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ],
