@@ -16,11 +16,18 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
         children: [
           Expanded(
+            flex: 1,
             child: SvgPicture.asset(
               "assets/images/personPNG.svg",
               height: 109,
               width: 109,
               fit: BoxFit.cover,
+            ),
+          ),
+          Expanded(
+            flex: 5,
+            child: Column(
+              children: [Text("data")],
             ),
           )
         ],
