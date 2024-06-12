@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 
 final class GoRouterSystem {
   static GoRouter router = GoRouter(
-    initialLocation: AppRouterName.main,
+    initialLocation: AppRouterName.splesh,
     routes: [
       GoRoute(
         path: AppRouterName.splesh,

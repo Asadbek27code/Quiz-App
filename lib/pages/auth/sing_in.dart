@@ -180,7 +180,7 @@ class _SingInPageState extends State<SingInPage> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 75),
+                  padding: const EdgeInsets.symmetric(horizontal: 90),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

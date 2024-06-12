@@ -1,6 +1,7 @@
 import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:asadbek_router_lesson/data/appColors.dart';
 import 'package:asadbek_router_lesson/services/firebase_auth_service.dart';
+import 'package:asadbek_router_lesson/services/google_sing_in_firebase.dart';
 import 'package:asadbek_router_lesson/services/util_service.dart';
 import 'package:email_otp/email_otp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,16 +32,39 @@ class _SingUpPageState extends State<SingUpPage> {
         content: Text("Bo'sh joylar bulmasligi kerak"),
       ));
     } else if (email.isEmpty || email.length < 2 || !email.contains("@")) {
-      Utils.fireSnackBar("Email is badly formatted", context);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.red,
+        content: Center(
+            child: Text(
+          "Email is badly formatted",
+          style: TextStyle(color: Colors.white),
+        )),
+      ));
     } else if (pass.isEmpty || pass.length < 5) {
       Utils.fireSnackBar("Password should be more than 6 char", context);
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.red,
+        content: Center(
+            child: Text(
+          "Password should be more than 6 char",
+          style: TextStyle(color: Colors.white),
+        )),
+      ));
     } else {
-      myAuth.setConfig(appEmail: "me@rohitchouhan.com", appName: "Email OTP", userEmail: email, otpLength: 4, otpType: OTPType.digitsOnly);
+      // myAuth.setConfig(appEmail: "me@rohitchouhan.com", appName: "Email OTP", userEmail: email, otpLength: 4, otpType: OTPType.digitsOnly);
       User? user = await AuthService.registerUser(context, name: name, email: email, password: pass);
       if (user != null) {
         if (mounted) {
           Utils.fireSnackBar("Successfully registered", context);
-          context.go(AppRouterName.singInCode);
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            backgroundColor: Colors.red,
+            content: Center(
+                child: Text(
+              "Successfully registered",
+              style: TextStyle(color: Colors.white),
+            )),
+          ));
+          context.go(AppRouterName.singIn);
         }
       }
     }
@@ -79,12 +103,23 @@ class _SingUpPageState extends State<SingUpPage> {
                   child: TextField(
                     controller: nameC,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
-                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: DataColor.colorGrey,
+                            )),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: DataColor.colorGrey,
+                            )),
                         label: const Text("full name"),
-                        suffixIcon: const Icon(
+                        labelStyle: TextStyle(
+                          color: DataColor.colorGrey,
+                        ),
+                        suffixIcon: Icon(
                           Icons.person,
-                          color: Colors.grey,
+                          color: DataColor.colorGrey,
                         )),
                   ),
                 ),
@@ -93,12 +128,23 @@ class _SingUpPageState extends State<SingUpPage> {
                   child: TextField(
                     controller: emailC,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
-                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: DataColor.colorGrey,
+                            )),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: DataColor.colorGrey,
+                            )),
                         label: const Text("email"),
-                        suffixIcon: const Icon(
+                        labelStyle: TextStyle(
+                          color: DataColor.colorGrey,
+                        ),
+                        suffixIcon: Icon(
                           Icons.email,
-                          color: Colors.grey,
+                          color: DataColor.colorGrey,
                         )),
                   ),
                 ),
@@ -107,20 +153,31 @@ class _SingUpPageState extends State<SingUpPage> {
                   child: TextField(
                     controller: passwordC,
                     decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
-                        focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: DataColor.colorGrey,
+                            )),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: DataColor.colorGrey,
+                            )),
                         label: const Text("password"),
-                        suffixIcon: const Icon(
+                        labelStyle: TextStyle(
+                          color: DataColor.colorGrey,
+                        ),
+                        suffixIcon: Icon(
                           Icons.remove_red_eye,
-                          color: Colors.grey,
+                          color: DataColor.colorGrey,
                         )),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: MaterialButton(
-                    height: 50,
-                    color: Colors.green,
+                    height: 60,
+                    color: DataColor.colorgreen,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -135,32 +192,58 @@ class _SingUpPageState extends State<SingUpPage> {
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Divider(
-                      color: Colors.grey,
-                    ),
-                    Text(
-                      "Or Sign up With",
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    Divider(
-                      color: Colors.grey,
-                    )
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 90),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          color: DataColor.colorGrey,
+                          thickness: 1,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Text(
+                          "Or Sign up With",
+                          style: TextStyle(color: DataColor.colorGrey),
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: DataColor.colorGrey,
+                          thickness: 1,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                MaterialButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    side: const BorderSide(color: Colors.grey),
-                  ),
-                  height: 60,
-                  minWidth: 60,
-                  onPressed: () {},
-                  child: SvgPicture.asset(
-                    "assets/images/google.svg",
+                Container(
+                  height: 44,
+                  width: 44,
+                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10), boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      offset: const Offset(1, 1),
+                      spreadRadius: 1,
+                      blurRadius: 3,
+                    )
+                  ]),
+                  child: MaterialButton(
+                    onPressed: () async {
+                      await AuthGoogle().singInWihtGoogle();
+                    },
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: EdgeInsets.zero,
+                    child: SvgPicture.asset(
+                      "assets/images/google.svg",
+                      height: 24,
+                      width: 24,
+                    ),
                   ),
                 ),
                 // SizedBox(height: MediaQuery.of(context).size.height * 0.02),
@@ -170,7 +253,7 @@ class _SingUpPageState extends State<SingUpPage> {
           MaterialButton(
             padding: const EdgeInsets.symmetric(horizontal: 100),
             onPressed: () {
-              context.go(AppRouterName.singInCode);
+              context.go(AppRouterName.singIn);
             },
             child: Row(
               children: [
@@ -178,8 +261,8 @@ class _SingUpPageState extends State<SingUpPage> {
                   "Don’t have an account?",
                   style: TextStyle(fontSize: 11, color: DataColor.colorBlack),
                 ),
-                Text(
-                  "Sign Up",
+                const Text(
+                  "Sign in",
                   style: TextStyle(color: Colors.green),
                 )
               ],
