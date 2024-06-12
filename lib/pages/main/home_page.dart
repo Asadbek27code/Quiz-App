@@ -37,7 +37,12 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: CircleAvatar(
               radius: 30,
-              child: SvgPicture.asset("assets/images/person.svg"),
+              child: Image.asset(
+                "assets/images/image.png",
+                width: 46,
+                height: 46,
+                fit: BoxFit.cover,
+              ),
             ),
           )
         ],
