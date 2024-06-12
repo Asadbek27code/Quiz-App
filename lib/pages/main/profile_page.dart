@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,10 +11,20 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text("ProfilePage"),
-      ),
+          child: Column(
+        children: [
+          Expanded(
+            child: SvgPicture.asset(
+              "assets/images/personPNG.svg",
+              height: 109,
+              width: 109,
+              fit: BoxFit.cover,
+            ),
+          )
+        ],
+      )),
     );
   }
 }

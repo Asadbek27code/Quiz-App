@@ -1,4 +1,3 @@
-// go_router_system.dart
 import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:asadbek_router_lesson/pages/auth/sing_in.dart';
 import 'package:asadbek_router_lesson/pages/auth/sing_in_code.dart';
@@ -8,6 +7,7 @@ import 'package:asadbek_router_lesson/pages/main/level_page.dart';
 import 'package:asadbek_router_lesson/pages/main/main_page.dart';
 import 'package:asadbek_router_lesson/pages/main/profile_page.dart';
 import 'package:asadbek_router_lesson/pages/splesh_page.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final class GoRouterSystem {
@@ -30,27 +30,29 @@ final class GoRouterSystem {
         path: AppRouterName.singInCode,
         builder: (context, state) => const SingInCodePage(),
       ),
+      GoRoute(
+        path: AppRouterName.main,
+        builder: (context, state) => const MainPage(child: HomePage()),
+      ),
       ShellRoute(
-          builder: (context, state, child) {
-            return MainPage(
-              child: child,
-            );
-          },
-          routes: [
-            GoRoute(
-              path: AppRouterName.home,
-              builder: (context, state) => const HomePage(),
-            ),
-            GoRoute(
-              path: AppRouterName.level,
-              builder: (context, state) => const LevelPage(),
-            ),
-            GoRoute(
-              path: AppRouterName.profile,
-              builder: (context, state) => const ProfilePage(),
-            ),
-          ])
-      // Qo'shimcha yo'riqnomalar kerak bo'lsa shu yerga qo'shing
+        builder: (context, state, child) {
+          return MainPage(child: child);
+        },
+        routes: [
+          GoRoute(
+            path: AppRouterName.home,
+            builder: (context, state) => const HomePage(),
+          ),
+          GoRoute(
+            path: AppRouterName.level,
+            builder: (context, state) => const LevelPage(),
+          ),
+          GoRoute(
+            path: AppRouterName.profile,
+            builder: (context, state) => const ProfilePage(),
+          ),
+        ],
+      ),
     ],
   );
 }

@@ -26,9 +26,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 80,
         title: const Text(
-          "Hello Asadbek",
+          "Hello Asadbek"
+          "",
           style: TextStyle(fontWeight: FontWeight.w800),
         ),
         actions: [

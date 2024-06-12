@@ -6,7 +6,7 @@ final class AppRouterName {
   static const String singIn = "/singIn";
   static const String singUp = "/singUp";
   static const String singInCode = "/singInCode";
-  static const String main = "/main";
+  static const String main = "/";
   static const String home = "/home";
   static const String profile = "/profile";
   static const String level = "/level";

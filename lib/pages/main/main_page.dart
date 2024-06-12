@@ -1,4 +1,7 @@
+import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class MainPage extends StatefulWidget {
   final Widget child;
@@ -9,26 +12,46 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+    switch (index) {
+      case 0:
+        context.go(AppRouterName.home);
+        break;
+      case 1:
+        context.go(AppRouterName.level);
+        break;
+      case 2:
+        context.go(AppRouterName.profile);
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: widget.child,
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
+        currentIndex: selectedIndex,
+        onTap: _onItemTapped,
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: SvgPicture.asset(selectedIndex == 0 ? "assets/images/home2.svg" : "assets/images/home.svg"),
+            label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: SvgPicture.asset(selectedIndex == 1 ? "assets/images/level2.svg" : "assets/images/level.svg"),
+            label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: SvgPicture.asset(selectedIndex == 2 ? "assets/images/profile2.svg" : "assets/images/profile.svg"),
+            label: "",
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
       ),
     );
   }
