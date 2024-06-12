@@ -70,6 +70,8 @@ class _SingUpPageState extends State<SingUpPage> {
     }
   }
 
+  bool checkValue = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,6 +175,31 @@ class _SingUpPageState extends State<SingUpPage> {
                         )),
                   ),
                 ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Checkbox(
+                        checkColor: Colors.green,
+                        value: checkValue,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(1),
+                          side: BorderSide(color: DataColor.colorGrey, width: 0.003),
+                        ),
+                        activeColor: Colors.white,
+                        // hoverColor: Colors.white,
+                        // activeColor: Colors.white,
+                        focusColor: DataColor.colorgreen,
+                        onChanged: (value) {
+                          setState(() {
+                            checkValue = value!;
+                          });
+                        }),
+                    Text(
+                      "Accept terms & Condition",
+                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.w400, color: checkValue ? DataColor.colorgreen : DataColor.colorGrey),
+                    )
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: MaterialButton(
@@ -268,7 +295,7 @@ class _SingUpPageState extends State<SingUpPage> {
               ],
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.08)
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05)
           // SizedBox(height: 50),
         ],
       )),
