@@ -13,6 +13,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))],
       ),
@@ -49,24 +50,24 @@ class _ProfilePageState extends State<ProfilePage> {
                   )
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   children: [
                     Divider(
                       color: DataColor.colorGrey,
                       indent: 1,
                     ),
-                    SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 220),
+                    const SizedBox(height: 20),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 220),
                       child: Text(
                         "Enter your information \nto make changes",
                         style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -82,10 +83,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
                       focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
                       label: const Text(
-                        "Email",
+                        "First Name",
                         // style: TextStyle(),
                       ),
-                      hintText: "Enter Email",
+                      hintText: "Enter First Name",
                       hintStyle: TextStyle(
                         color: DataColor.colorGrey,
                       ),
@@ -107,10 +108,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
                       focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
                       label: const Text(
-                        "Email",
+                        "Last Name",
                         // style: TextStyle(),
                       ),
-                      hintText: "Enter Email",
+                      hintText: "Enter Last Name",
                       hintStyle: TextStyle(
                         color: DataColor.colorGrey,
                       ),
@@ -132,10 +133,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
                       focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
                       label: const Text(
-                        "Email",
+                        "Password",
                         // style: TextStyle(),
                       ),
-                      hintText: "Enter Email",
+                      hintText: "Enter Password",
                       hintStyle: TextStyle(
                         color: DataColor.colorGrey,
                       ),
@@ -157,10 +158,11 @@ class _ProfilePageState extends State<ProfilePage> {
                       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.grey)),
                       focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: BorderSide(color: DataColor.colorgreen)),
                       label: const Text(
-                        "Email",
+                        "Confirm Password",
                         // style: TextStyle(),
                       ),
-                      hintText: "Enter Email",
+                      // labelText: "Confirm Password",
+                      hintText: "Confirm Password",
                       hintStyle: TextStyle(
                         color: DataColor.colorGrey,
                       ),
