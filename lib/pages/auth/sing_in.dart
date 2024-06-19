@@ -220,7 +220,7 @@ class _SingInPageState extends State<SingInPage> {
                   ]),
                   child: MaterialButton(
                     onPressed: () async {
-                      await AuthGoogle().singInWihtGoogle();
+                      // await AuthGoogle().singInWihtGoogle();
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),

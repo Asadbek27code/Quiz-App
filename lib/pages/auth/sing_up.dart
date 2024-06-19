@@ -280,7 +280,7 @@ class _SingUpPageState extends State<SingUpPage> {
                   ]),
                   child: MaterialButton(
                     onPressed: () async {
-                      await AuthGoogle().singInWihtGoogle();
+                      // await AuthGoogle().singInWihtGoogle();
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -298,7 +298,7 @@ class _SingUpPageState extends State<SingUpPage> {
             ),
           ),
           MaterialButton(
-            padding: const EdgeInsets.symmetric(horizontal: 100),
+            padding: const EdgeInsets.symmetric(horizontal: 120),
             onPressed: () {
               context.go(AppRouterName.singIn);
             },
@@ -310,7 +310,7 @@ class _SingUpPageState extends State<SingUpPage> {
                 ),
                 const Text(
                   "Sign in",
-                  style: TextStyle(color: Colors.green),
+                  style: TextStyle(color: Colors.green, fontSize: 11),
                 )
               ],
             ),

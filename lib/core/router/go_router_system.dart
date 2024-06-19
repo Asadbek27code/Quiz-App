@@ -2,7 +2,6 @@ import 'package:asadbek_router_lesson/core/router/router_name.dart';
 import 'package:asadbek_router_lesson/pages/auth/sing_in.dart';
 import 'package:asadbek_router_lesson/pages/auth/sing_in_code.dart';
 import 'package:asadbek_router_lesson/pages/auth/sing_up.dart';
-import 'package:asadbek_router_lesson/pages/main/home_ichi.dart';
 import 'package:asadbek_router_lesson/pages/main/home_page.dart';
 import 'package:asadbek_router_lesson/pages/main/level_page.dart';
 import 'package:asadbek_router_lesson/pages/main/main_page.dart';
@@ -34,6 +33,9 @@ final class GoRouterSystem {
         path: AppRouterName.main,
         builder: (context, state) => const MainPage(child: HomePage()),
       ),
+
+      //  ShellRoute  ishlata olmadin
+
       ShellRoute(
         builder: (context, state, child) {
           return MainPage(child: child);
